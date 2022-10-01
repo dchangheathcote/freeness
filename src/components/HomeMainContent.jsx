@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Scrollbars } from "react-custom-scrollbars";
 
 const DataCard = (props) => {
   /* <div>{props.screenshots}</div><div>{props.shortDesc}</div> */
