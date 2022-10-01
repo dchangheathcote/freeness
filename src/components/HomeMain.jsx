@@ -6,6 +6,7 @@ function HomeMain() {
   const platformsArr = ["pc", "browser"];
 
   const genresArr = [
+    "all",
     "mmorpg",
     "shooter",
     "strategy",
@@ -13,44 +14,10 @@ function HomeMain() {
     "racing",
     "sports",
     "social",
-    "sandbox",
-    "open-world",
-    "survival",
-    "pvp",
-    "pve",
-    "pixel",
-    "voxel",
-    "zombie",
-    "turn-based",
-    "first-person",
-    "third-Person",
-    "top-down",
-    "tank",
-    "space",
-    "sailing",
-    "side-scroller",
-    "superhero",
-    "permadeath",
-    "card",
-    "battle-royale",
     "mmo",
     "mmofps",
-    "mmotps",
-    "3d",
-    "2d",
-    "anime",
     "fantasy",
-    "sci-fi",
     "fighting",
-    "action-rpg",
-    "action",
-    "military",
-    "martial-arts",
-    "flight",
-    "low-spec",
-    "tower-defense",
-    "horror",
-    "mmorts",
   ];
 
   const sortbyArr = ["release-date", "popularity", "alphabetical", "relevance"];
@@ -60,16 +27,20 @@ function HomeMain() {
   const [sortby, setSortby] = useState("");
 
   const handlePlatformsClick = (e) => {
-    console.log("platforms", e.currentTarget.id);
+    //console.log("platforms", e.currentTarget.id);
+    setPlatform(e.currentTarget.id);
   };
   const handleGenresClick = (e) => {
-    console.log("genres", e.currentTarget.id);
+    const g = e.currentTarget.id === "all" ? "" : e.currentTarget.id;
+    //const g =e.currentTarget.id;
+    //if(g==='all')
+    setGenre(g);
   };
   const handleSortbyClick = (e) => {
     console.log("sortby", e.currentTarget.id);
   };
   return (
-    <div>
+    <div className="main-layout">
       <HomeMainSide
         platforms={platformsArr}
         genres={genresArr}
@@ -78,7 +49,7 @@ function HomeMain() {
         onGenresClick={handleGenresClick}
         onSortbyClick={handleSortbyClick}
       />
-      <HomeMainContent />
+      <HomeMainContent platform={platform} genre={genre} />
     </div>
   );
 }

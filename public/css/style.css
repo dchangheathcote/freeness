@@ -138,3 +138,91 @@ progress {
 summary {
   display: list-item;
 }
+
+:root {
+  --header-h: 4rem;
+  --sidebar-w: 18rem;
+  --font-color: #fff;
+  --font-main: "Poppins", sans-serif;
+}
+
+a {
+  color: #df4646;
+}
+
+.body-wrap {
+  color: var(--font-color);
+  font-family: var(--font-main);
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(59, 69, 118);
+  background: linear-gradient(169deg, rgb(54, 65, 116) 0%, rgb(26, 31, 75) 100%);
+}
+
+.header {
+  background-color: #323970;
+}
+.header__block {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #29315d;
+}
+.header .brand {
+  color: #fff;
+}
+
+ul.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-layout {
+  display: flex;
+}
+
+.main-side {
+  height: calc(100vh - var(--header-h));
+  overflow-x: auto;
+  width: var(--sidebar-w);
+}
+.main-side .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.main-side .nav li {
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  border: 1px solid #6b76cb;
+  border-radius: 1rem;
+  color: #6b76cb;
+  transition: all 250ms;
+}
+.main-side .nav li div {
+  font-size: 0.75rem;
+}
+.main-side .nav li:hover {
+  color: #fff;
+  background-color: #6b76cb;
+}
+.main-side > div {
+  padding: 1rem;
+}
+
+.main-content {
+  width: calc(100vw - var(--sidebar-w));
+  overflow-x: auto;
+  height: calc(100vh - var(--header-h));
+}
+
+.game-card-block {
+  max-width: 600px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.game-card {
+  background-color: #343d79;
+}
