@@ -1,0 +1,63 @@
+---
+import { allTheDatas, getTheSlug, returnIds } from "../utils/GameData.js";
+
+export async function getStaticPaths() {
+  // const gameIds = returnIds();
+
+  // return await gameIds.map((g) => {
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": import.meta.env.PUBLIC_API_KEY,
+  //       "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+  //     },
+  //   };
+  //   const allResponse = fetch(
+  //     `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${g.id}`,
+  //     options
+  //   );
+  //   const game = allResponse.json();
+  //   const slug = getTheSlug(game.title);
+  //   return {
+  //     params: { slug },
+  //     props: { game },
+  //   };
+  // });
+  const gameData = allTheDatas();
+  return gameData.map(
+    ({ id, title, thumbnail, description, screenshots, game_url }) => {
+      const slug = getTheSlug(title);
+      return {
+        params: { slug },
+        props: {
+          id,
+          title,
+          thumbnail,
+          description,
+          slug,
+          screenshots,
+          game_url,
+        },
+      };
+    }
+  );
+}
+
+const { title, thumbnail, description, slug, screenshots, game_url } =
+  Astro.props;
+---
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <p>slug: {slug}</p>
+    <p>{thumbnail}</p>
+    <p><a href={game_url} target="_blank">{game_url}</a></p>
+    <div>{description}515</div>
+    <div>{screenshots.map((s) => <img src={s.image} alt={s.id} />)}</div>
+  </body>
+</html>

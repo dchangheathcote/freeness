@@ -23,17 +23,14 @@ function HomeMain() {
   const sortbyArr = ["release-date", "popularity", "alphabetical", "relevance"];
   const API = "https://www.freetogame.com/api/games";
   const [platform, setPlatform] = useState("");
-  const [genre, setGenre] = useState("");
+  const [genre, setGenre] = useState("all");
   const [sortby, setSortby] = useState("");
 
   const handlePlatformsClick = (e) => {
-    //console.log("platforms", e.currentTarget.id);
     setPlatform(e.currentTarget.id);
   };
   const handleGenresClick = (e) => {
-    const g = e.currentTarget.id === "all" ? "" : e.currentTarget.id;
-    //const g =e.currentTarget.id;
-    //if(g==='all')
+    const g = e.currentTarget.id === "all" ? "all" : e.currentTarget.id;
     setGenre(g);
   };
   const handleSortbyClick = (e) => {
