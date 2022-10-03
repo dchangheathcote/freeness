@@ -23,7 +23,7 @@ const Rocket = () => {
 };
 
 const DataCard = (props) => {
-  /* <div>{props.screenshots}</div><div>{props.shortDesc}</div> */
+  /*<div>{props.shortDesc}</div>*/
   /*
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-windows" viewBox="0 0 16 16">
   <path d="M6.555 1.375 0 2.237v5.45h6.555V1.375zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16V0z"/>
@@ -43,15 +43,24 @@ const DataCard = (props) => {
   const slug = getTheSlug(props.title);
   return (
     <div className="game-card" id={props.id}>
-      <a href={slug}>
-        <img src={props.thumbnail} alt={props.title} height="206" width="365" />
-        <div>
-          <div>{props.title}</div>
-          <div>{props.platform}</div>
-          <div>{props.genre}</div>
-          <div>{props.url}</div>
-        </div>
-      </a>
+      <div className="game-card-inner">
+        <a href={slug}>
+          <img
+            src={props.thumbnail}
+            alt={props.title}
+            height="206"
+            width="365"
+          />
+          <div className="game-card-body">
+            <div className="game-card-header">
+              <h2>{props.title}</h2>
+              <span>by: {props.publisher}</span>
+            </div>
+            <div>{props.platform}</div>
+            <div>{props.genre}</div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
@@ -111,6 +120,7 @@ const HomeMainContent = (props) => {
             key={g.id}
             id={g.id}
             title={g.title}
+            publisher={g.publisher}
             platform={g.platform}
             thumbnail={g.thumbnail}
             genre={g.genre}

@@ -302,11 +302,19 @@ ul.nav {
 }
 
 .game-card-block {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.game-card {
+.game-card .game-card-inner {
+  padding: 1rem;
+}
+.game-card .game-card-inner img {
+  width: 100%;
+  height: auto;
+}
+.game-card .game-card-inner a {
+  display: block;
   background-color: #343d79;
 }
 
@@ -385,10 +393,19 @@ ul.nav {
   border-radius: 50vw;
   display: inline-block;
   margin-block: 1rem 2rem;
+  vertical-align: middle;
+  display: inline-block;
 }
 .freegame-link a:hover {
   background-color: var(--color-primary);
   color: #fff;
+}
+.freegame-link a svg {
+  height: 1.25rem;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -2px;
+  margin-left: 0.5rem;
 }
 
 .gallery {
