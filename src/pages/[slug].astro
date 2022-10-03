@@ -71,28 +71,36 @@ const {
             stroke-linejoin="round"
             d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
         </svg>
-        Back</a
-      >
+        Back
+      </a>
     </div>
     <article>
       <div class="freegame">
         <div class="freegame-main">
-          <div class="freegame-side">
-            <img src={thumbnail} alt={`${title} thumbnail`} />
-          </div>
-          <div class="freegame-content">
-            <h1>{title}</h1>
-            <p class="freegame-genre">{genre}</p>
-            <p><a href={game_url} target="_blank">{game_url}</a></p>
-            <div class="freegame-meta">
-              <p>Platform: {platform}</p>
-              <p>Publisher: {publisher}</p>
-              <p>{release_date}</p>
+          <header class="freegame-header">
+            <div class="freegame-side">
+              <img src={thumbnail} alt={`${title} thumbnail`} />
             </div>
+            <div class="freegame-content">
+              <h1>{title}</h1>
+              <p class="freegame-genre">{genre}</p>
+
+              <div class="freegame-meta">
+                <p>Platform: {platform}</p>
+                <p>Publisher: {publisher}</p>
+                <p>Release Date: {release_date}</p>
+              </div>
+              <div class="freegame-link">
+                <a href={game_url} target="_blank">Link to Game</a>
+              </div>
+            </div>
+          </header>
+          <section class="freegame-body">
+            <h2>Description</h2>
             <div class="description"><p>{description}</p></div>
-            <div class="gallery">
-              {screenshots.map((s) => <img src={s.image} alt={s.id} />)}
-            </div>
+          </section>
+          <div class="gallery">
+            {screenshots.map((s) => <img src={s.image} alt={s.id} />)}
           </div>
         </div>
         <Footer />

@@ -33,6 +33,12 @@ const HomeMainSide = (props) => {
             </li>
           ))}
         </ul>
+        <p className="side-nav-title">
+          <a href="https://freetogame.com" target="_blank">
+            API from Freetogame.com
+          </a>
+        </p>
+
         {/* <ul id="sort" className="nav">
         {sortby.map((sort) => (
           <li

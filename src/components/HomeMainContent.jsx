@@ -1,6 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getTheSlug } from "../utils/GameData.js";
 
+const Rocket = () => {
+  return (
+    <div className="loading">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+        />
+      </svg>
+    </div>
+  );
+};
+
 const DataCard = (props) => {
   /* <div>{props.screenshots}</div><div>{props.shortDesc}</div> */
   /*
@@ -15,8 +36,6 @@ const DataCard = (props) => {
 */
   if (props.genreFilter !== "all")
     if (props.genre.toLowerCase() !== props.genreFilter.toLowerCase()) return;
-  //console.log(props.genreFilter);
-  //if (props.search)
 
   if (props.search !== "")
     if (!props.title.toLowerCase().includes(props.search.toLowerCase())) return;
@@ -39,18 +58,7 @@ const DataCard = (props) => {
 const HomeMainContent = (props) => {
   const [gameData, setGameData] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  const showGameData = (data) => {
-    // console.log(data);
-    // console.log(data.id);
-    // console.log(data.title);
-    // console.log(data.platform);
-    // console.log(data.thumbnail);
-    // console.log(data.genre);
-    // console.log(data.game_url);
-    // console.log(data.screenshots);
-    // console.log(data.short_description);
-    //console.log(gameData);
-  };
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const options = {
       method: "GET",
@@ -66,32 +74,34 @@ const HomeMainContent = (props) => {
       .then((response) => response.json())
       .then((response) => {
         setGameData(response);
-        //showGameData(response);
+        setIsLoading(false);
       })
       .catch((err) => console.error(err));
   }, []);
   const handleOnChange = (e) => {
     setSearchVal(e.target.value);
-    //console.log(e.target.value);
   };
   return (
     <div className="main-content">
       <div className="game-card-search">
-        <input
-          type="text"
-          placeholder="search for a game"
-          onChange={handleOnChange}
-          value={searchVal}
-        />
-        <button
-          onClick={() => {
-            setSearchVal("");
-          }}
-          title="Clear search"
-        >
-          clear
-        </button>
+        <div className="game-card-search-inner">
+          <input
+            type="text"
+            placeholder="search by title"
+            onChange={handleOnChange}
+            value={searchVal}
+          />
+          <button
+            onClick={() => {
+              setSearchVal("");
+            }}
+            title="Clear search"
+          >
+            clear
+          </button>
+        </div>
       </div>
+      {isLoading && <Rocket />}
       <div className="game-card-block">
         {gameData.map((g) => (
           <DataCard
@@ -110,8 +120,8 @@ const HomeMainContent = (props) => {
           />
         ))}
       </div>
-      <footer class="footer">
-        <div class="free2game-attribution">
+      <footer className="footer">
+        <div className="free2game-attribution">
           <a href="https://www.freetogame.com/" target="_blank">
             <img
               src="https://www.freetogame.com/assets/images/logo-footer.png"

@@ -116,10 +116,15 @@ summary {
   --header-h: 4rem;
   --sidebar-w: 18rem;
   --font-color: #fff;
+  --color-primary: #df4646;
+  --color-accent: #6b76cb;
   --font-main: "Poppins", sans-serif;
 }
 a {
   color: #df4646;
+}
+p {
+  line-height: 1.5rem;
 }
 .body-wrap {
   color: var(--font-color);
@@ -178,9 +183,9 @@ ul.nav {
     & li {
       padding: 0.4rem 0.75rem;
       cursor: pointer;
-      border: 1px solid #6b76cb;
+      border: 1px solid var(--color-accent);
       border-radius: 1rem;
-      color: #6b76cb;
+      color: var(--color-accent);
       transition: all 250ms;
       & div {
         font-size: 0.75rem;
@@ -188,7 +193,7 @@ ul.nav {
     }
     & li:hover {
       color: #fff;
-      background-color: #6b76cb;
+      background-color: var(--color-accent);
     }
   }
   & > div {
@@ -200,10 +205,63 @@ ul.nav {
   overflow-x: auto;
   height: calc(100vh - var(--header-h));
 }
+.loading {
+  padding-block: 4rem;
+  svg {
+    height: 3rem;
+    animation: rocket 1000ms linear infinite;
+  }
+}
+@keyframes rocket {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+.game-card-search {
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  .game-card-search-inner {
+    backdrop-filter: blur(20px);
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 1rem;
+    border-radius: 50vw;
+    text-align: center;
+  }
+  input {
+    border: 0;
+    background-color: transparent;
+    color: var(--font-color);
+    border-bottom: 1px solid #29315d;
+    margin-right: 0.5rem;
+    &:focus {
+      background-color: var(--font-color);
+      color: #29315d;
+      &::placeholder {
+        color: #29315d;
+      }
+    }
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--font-color);
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
 .game-card-block {
-  max-width: 600px;
-  width: 100%;
-  margin-inline: auto;
+  // max-width: 600px;
+  // width: 100%;
+  // margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 .game-card {
   background-color: #343d79;
@@ -220,7 +278,6 @@ ul.nav {
       left: 0;
       top: 50%;
       margin-top: -0.8rem;
-      // transition: all 500ms infinite;
     }
     &:hover {
       svg {
@@ -242,18 +299,46 @@ ul.nav {
   overflow-x: auto;
   height: calc(100vh - var(--header-h));
 }
-.freegame-main {
+.freegame-header {
   display: flex;
+  .freegame-content {
+    flex-grow: 1;
+    padding-inline: 2rem;
+  }
+}
+.freegame-main {
   max-width: 100%;
   width: 1000px;
   margin-inline: auto;
-}
-.freegame-content {
   .description {
     white-space: pre-wrap;
   }
 }
+.freegame-body {
+  max-width: 100%;
+  width: 600px;
+  margin-inline: auto;
+  margin-block: 3rem 5rem;
+}
+.freegame-link {
+  a {
+    border: 1px solid var(--color-primary);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50vw;
+    display: inline-block;
+    margin-block: 1rem 2rem;
+    &:hover {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+  }
+}
 .gallery {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
   img {
     width: 300px;
     height: auto;
@@ -262,4 +347,8 @@ ul.nav {
 .footer {
   padding-block: 8rem;
   text-align: center;
+  .copy {
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
 }
