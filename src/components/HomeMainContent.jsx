@@ -56,8 +56,16 @@ const DataCard = (props) => {
               <h2>{props.title}</h2>
               <span>by: {props.publisher}</span>
             </div>
-            <div>{props.platform}</div>
-            <div>{props.genre}</div>
+            <div className="game-card-meta">
+              <div className="meta-item">
+                <span>Platform</span>
+                {props.platform}
+              </div>
+              <div className="meta-item">
+                <span>Genre</span>
+                {props.genre}
+              </div>
+            </div>
           </div>
         </a>
       </div>

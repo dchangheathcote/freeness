@@ -307,15 +307,57 @@ ul.nav {
 }
 
 .game-card .game-card-inner {
-  padding: 1rem;
+  padding-inline: 1rem;
+  margin-bottom: 3rem;
 }
 .game-card .game-card-inner img {
   width: 100%;
   height: auto;
+  transition: all 150ms linear;
 }
 .game-card .game-card-inner a {
   display: block;
   background-color: #343d79;
+  color: #fff;
+  text-decoration: none;
+  -webkit-animation: all 150ms linear;
+          animation: all 150ms linear;
+}
+.game-card .game-card-inner a:hover img {
+  transform: scale3d(1.1, 1.1, 1);
+}
+.game-card .game-card-inner a:hover h2 {
+  color: var(--color-primary);
+}
+
+.game-card-body {
+  padding: 0.5rem 1rem 1rem;
+}
+.game-card-body .game-card-header {
+  min-height: 100px;
+}
+.game-card-body .game-card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.game-card-body .game-card-header span {
+  font-size: 0.825rem;
+  opacity: 0.65;
+}
+
+.game-card-meta {
+  display: flex;
+  opacity: 0.9;
+}
+.game-card-meta .meta-item {
+  flex-basis: 1;
+  width: 50%;
+}
+.game-card-meta span {
+  display: block;
+  font-size: 0.825rem;
+  opacity: 0.65;
 }
 
 .freegame-back-to-home {
