@@ -18,6 +18,7 @@ function HomeMain() {
     "mmofps",
     "fantasy",
     "fighting",
+    "card game",
   ];
 
   const sortbyArr = ["release-date", "popularity", "alphabetical", "relevance"];

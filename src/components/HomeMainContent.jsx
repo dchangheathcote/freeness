@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getTheSlug } from "../utils/GameData.js";
 
 const DataCard = (props) => {
   /* <div>{props.screenshots}</div><div>{props.shortDesc}</div> */
@@ -20,15 +21,18 @@ const DataCard = (props) => {
   if (props.search !== "")
     if (!props.title.toLowerCase().includes(props.search.toLowerCase())) return;
 
+  const slug = getTheSlug(props.title);
   return (
     <div className="game-card" id={props.id}>
-      <img src={props.thumbnail} alt={props.title} height="206" width="365" />
-      <div>
-        <div>{props.title}</div>
-        <div>{props.platform}</div>
-        <div>{props.genre}</div>
-        <div>{props.url}</div>
-      </div>
+      <a href={slug}>
+        <img src={props.thumbnail} alt={props.title} height="206" width="365" />
+        <div>
+          <div>{props.title}</div>
+          <div>{props.platform}</div>
+          <div>{props.genre}</div>
+          <div>{props.url}</div>
+        </div>
+      </a>
     </div>
   );
 };
@@ -106,6 +110,17 @@ const HomeMainContent = (props) => {
           />
         ))}
       </div>
+      <footer class="footer">
+        <div class="free2game-attribution">
+          <a href="https://www.freetogame.com/" target="_blank">
+            <img
+              src="https://www.freetogame.com/assets/images/logo-footer.png"
+              alt="Data Powered by Free2Game"
+            />
+          </a>
+        </div>
+        <p>2022 Darryl Chang-Heathcote thanks to APIs</p>
+      </footer>
     </div>
   );
 };

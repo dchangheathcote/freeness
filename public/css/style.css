@@ -156,7 +156,7 @@ a {
   height: 100vh;
   overflow: hidden;
   background: rgb(59, 69, 118);
-  background: linear-gradient(169deg, rgb(54, 65, 116) 0%, rgb(26, 31, 75) 100%);
+  background: linear-gradient(169deg, rgb(68, 87, 172) 0%, rgb(26, 31, 75) 100%);
 }
 
 .header {
@@ -167,9 +167,16 @@ a {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #29315d;
+  border-top: 1px solid #29315d;
+  padding-inline: 2rem;
 }
 .header .brand {
   color: #fff;
+  margin-right: auto;
+}
+.header .nav li a svg {
+  height: 2rem;
+  width: auto;
 }
 
 ul.nav {
@@ -225,4 +232,68 @@ ul.nav {
 
 .game-card {
   background-color: #343d79;
+}
+
+.freegame-back-to-home {
+  padding: 1rem 2rem;
+}
+.freegame-back-to-home a {
+  display: inline-block;
+  position: relative;
+  padding-left: 2rem;
+}
+.freegame-back-to-home a svg {
+  position: absolute;
+  height: 1.6rem;
+  left: 0;
+  top: 50%;
+  margin-top: -0.8rem;
+}
+.freegame-back-to-home a:hover svg {
+  transform: translate(0, 0);
+  -webkit-animation: loop 750ms linear infinite;
+          animation: loop 750ms linear infinite;
+}
+
+@-webkit-keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+.freegame {
+  overflow-x: auto;
+  height: calc(100vh - var(--header-h));
+}
+
+.freegame-main {
+  display: flex;
+  max-width: 100%;
+  width: 1000px;
+  margin-inline: auto;
+}
+
+.freegame-content .description {
+  white-space: pre-wrap;
+}
+
+.gallery img {
+  width: 300px;
+  height: auto;
+}
+
+.footer {
+  padding-block: 8rem;
+  text-align: center;
 }
