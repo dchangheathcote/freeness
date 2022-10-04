@@ -140,8 +140,8 @@ summary {
 }
 
 :root {
-  --header-h: 4rem;
-  --sidebar-w: 18rem;
+  --header-h: 4em;
+  --sidebar-w: 18em;
   --font-color: #fff;
   --color-primary: #df4646;
   --color-accent: #6b76cb;
@@ -250,7 +250,6 @@ ul.nav {
 }
 .main-content .main-content-inner {
   max-width: calc(100vw - var(--sidebar-w));
-  width: 100%;
   margin-inline: auto;
 }
 
@@ -505,4 +504,55 @@ ul.nav {
 .footer .copy {
   font-size: 0.85rem;
   margin-top: 2rem;
+}
+
+@media all and (max-width: 1400px) {
+  .main-content .main-content-inner {
+    max-width: 100%;
+  }
+  .main-side {
+    --main-side-width-1400: 260px;
+    position: absolute;
+    z-index: 50;
+    background-color: rgba(50, 57, 112, 0.76);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    width: var(--main-side-width-1400);
+  }
+  .main-side > div {
+    width: var(--main-side-width-1400);
+    margin-top: 75px;
+  }
+  .main-side .nav {
+    flex-direction: row;
+  }
+  .game-card-body .game-card-meta {
+    font-size: 75%;
+  }
+}
+@media all and (max-width: 1250px) {
+  .game-card-body .game-card-header h2 {
+    font-size: 1.25rem;
+  }
+}
+@media all and (max-width: 992px) {
+  .game-card-block {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .game-card-search input {
+    width: 60%;
+  }
+}
+@media all and (max-width: 768px) {
+  .game-card-block {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 576px) {
+  .game-card-block {
+    grid-template-columns: 1fr;
+  }
+  .game-card {
+    max-width: 100%;
+  }
 }
