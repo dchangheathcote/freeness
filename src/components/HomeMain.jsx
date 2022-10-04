@@ -8,6 +8,8 @@ function HomeMain() {
   const genresArr = [
     "all",
     "mmorpg",
+    "mmoarpg",
+    "arpg",
     "shooter",
     "strategy",
     "moba",
@@ -28,10 +30,16 @@ function HomeMain() {
   const [sortby, setSortby] = useState("");
 
   const handlePlatformsClick = (e) => {
+    const childs = document.getElementById("platforms").childNodes;
+    childs.forEach((li) => li.classList.remove("active"));
+    e.currentTarget.classList.add("active");
     setPlatform(e.currentTarget.id);
   };
   const handleGenresClick = (e) => {
     const g = e.currentTarget.id === "all" ? "all" : e.currentTarget.id;
+    const childs = document.getElementById("genre").childNodes;
+    childs.forEach((li) => li.classList.remove("active"));
+    e.currentTarget.classList.add("active");
     setGenre(g);
   };
   const handleSortbyClick = (e) => {

@@ -3,7 +3,7 @@ import React from "react";
 const HomeMainSide = (props) => {
   const { platforms, genres, sortby } = props;
   return (
-    <div className="main-side">
+    <div id="main-side" className="main-side open">
       <div>
         <p className="side-nav-title">Platforms</p>
         <ul id="platforms" className="nav">

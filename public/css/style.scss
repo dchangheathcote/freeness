@@ -174,8 +174,19 @@ ul.nav {
 }
 .main-side {
   height: calc(100vh - var(--header-h));
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
   width: var(--sidebar-w);
+  flex-shrink: 0;
+  transition: width 500ms ease-in-out;
+  &.open {
+    width: 0;
+
+    & > div {
+      opacity: 0;
+    }
+  }
   & .nav {
     display: flex;
     flex-wrap: wrap;
@@ -195,15 +206,29 @@ ul.nav {
       color: #fff;
       background-color: var(--color-accent);
     }
+    & li.active {
+      background-color: var(--color-primary);
+      color: var(--font-color);
+      border-color: var(--color-primary);
+    }
   }
   & > div {
     padding: 1rem;
+    width: var(--sidebar-w);
+    position: absolute;
+    transition: opacity 200ms ease-in-out;
   }
 }
 .main-content {
-  width: calc(100vw - var(--sidebar-w));
-  overflow-x: auto;
   height: calc(100vh - var(--header-h));
+  overflow-y: auto;
+  display: grid;
+  flex-grow: 1;
+  .main-content-inner {
+    max-width: calc(100vw - var(--sidebar-w));
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 .loading {
   padding-block: 4rem;
@@ -224,6 +249,8 @@ ul.nav {
   padding: 1rem;
   position: sticky;
   top: 0;
+  z-index: 100;
+
   .game-card-search-inner {
     backdrop-filter: blur(20px);
     background-size: cover;
@@ -231,6 +258,19 @@ ul.nav {
     padding: 1rem;
     border-radius: 50vw;
     text-align: center;
+    position: relative;
+    .filter-button {
+      position: absolute;
+      display: block;
+      padding: 0;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      svg {
+        height: 1.5rem;
+        display: block;
+      }
+    }
   }
   input {
     border: 0;
@@ -257,13 +297,13 @@ ul.nav {
   }
 }
 .game-card-block {
-  // max-width: 600px;
-  // width: 100%;
-  // margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-inline: auto;
 }
 .game-card {
+  position: relative;
+  z-index: 1;
   .game-card-inner {
     padding-inline: 1rem;
     margin-bottom: 3rem;
@@ -277,10 +317,6 @@ ul.nav {
       background-color: #343d79;
       color: #fff;
       text-decoration: none;
-      animation: all 150ms linear;
-      &:hover img {
-        transform: scale3d(1.1, 1.1, 1);
-      }
       &:hover h2 {
         color: var(--color-primary);
       }
@@ -409,4 +445,19 @@ ul.nav {
     font-size: 0.85rem;
     margin-top: 2rem;
   }
+}
+
+@media all and (min-width: 576px) {
+}
+
+@media all and (min-width: 768px) {
+}
+
+@media all and (min-width: 992px) {
+}
+
+@media all and (min-width: 1200px) {
+}
+
+@media all and (min-width: 1400px) {
 }

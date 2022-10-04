@@ -40,6 +40,12 @@ const DataCard = (props) => {
   if (props.search !== "")
     if (!props.title.toLowerCase().includes(props.search.toLowerCase())) return;
 
+  if (props.platformFilter !== "")
+    if (
+      !props.platform.toLowerCase().includes(props.platformFilter.toLowerCase())
+    )
+      return;
+
   const slug = getTheSlug(props.title);
   return (
     <div className="game-card" id={props.id}>
@@ -98,57 +104,78 @@ const HomeMainContent = (props) => {
   const handleOnChange = (e) => {
     setSearchVal(e.target.value);
   };
+  const handleFilter = (e) => {
+    document.getElementById("main-side").classList.toggle("open");
+  };
   return (
     <div className="main-content">
-      <div className="game-card-search">
-        <div className="game-card-search-inner">
-          <input
-            type="text"
-            placeholder="search by title"
-            onChange={handleOnChange}
-            value={searchVal}
-          />
-          <button
-            onClick={() => {
-              setSearchVal("");
-            }}
-            title="Clear search"
-          >
-            clear
-          </button>
-        </div>
-      </div>
-      {isLoading && <Rocket />}
-      <div className="game-card-block">
-        {gameData.map((g) => (
-          <DataCard
-            search={searchVal}
-            genreFilter={props.genre}
-            platformFilter={props.platform}
-            key={g.id}
-            id={g.id}
-            title={g.title}
-            publisher={g.publisher}
-            platform={g.platform}
-            thumbnail={g.thumbnail}
-            genre={g.genre}
-            url={g.game_url}
-            screens={g.screenshots}
-            shortDesc={g.short_description}
-          />
-        ))}
-      </div>
-      <footer className="footer">
-        <div className="free2game-attribution">
-          <a href="https://www.freetogame.com/" target="_blank">
-            <img
-              src="https://www.freetogame.com/assets/images/logo-footer.png"
-              alt="Data Powered by Free2Game"
+      <div className="main-content-inner">
+        <div className="game-card-search">
+          <div className="game-card-search-inner">
+            <button className="filter-button" onClick={handleFilter}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              placeholder="search by title"
+              onChange={handleOnChange}
+              value={searchVal}
             />
-          </a>
+            <button
+              onClick={() => {
+                setSearchVal("");
+              }}
+              title="Clear search"
+            >
+              clear
+            </button>
+          </div>
         </div>
-        <p>2022 Darryl Chang-Heathcote thanks to APIs</p>
-      </footer>
+        {isLoading && <Rocket />}
+        <div className="game-card-block">
+          {gameData.map((g) => (
+            <DataCard
+              search={searchVal}
+              genreFilter={props.genre}
+              platformFilter={props.platform}
+              key={g.id}
+              id={g.id}
+              title={g.title}
+              publisher={g.publisher}
+              platform={g.platform}
+              thumbnail={g.thumbnail}
+              genre={g.genre}
+              url={g.game_url}
+              screens={g.screenshots}
+              shortDesc={g.short_description}
+            />
+          ))}
+        </div>
+        <footer className="footer">
+          <div className="free2game-attribution">
+            <a href="https://www.freetogame.com/" target="_blank">
+              <img
+                src="https://www.freetogame.com/assets/images/logo-footer.png"
+                alt="Data Powered by Free2Game"
+              />
+            </a>
+          </div>
+          <p>2022 Darryl Chang-Heathcote thanks to APIs</p>
+        </footer>
+      </div>
     </div>
   );
 };

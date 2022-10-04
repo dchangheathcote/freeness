@@ -197,8 +197,18 @@ ul.nav {
 
 .main-side {
   height: calc(100vh - var(--header-h));
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
   width: var(--sidebar-w);
+  flex-shrink: 0;
+  transition: width 500ms ease-in-out;
+}
+.main-side.open {
+  width: 0;
+}
+.main-side.open > div {
+  opacity: 0;
 }
 .main-side .nav {
   display: flex;
@@ -220,14 +230,28 @@ ul.nav {
   color: #fff;
   background-color: var(--color-accent);
 }
+.main-side .nav li.active {
+  background-color: var(--color-primary);
+  color: var(--font-color);
+  border-color: var(--color-primary);
+}
 .main-side > div {
   padding: 1rem;
+  width: var(--sidebar-w);
+  position: absolute;
+  transition: opacity 200ms ease-in-out;
 }
 
 .main-content {
-  width: calc(100vw - var(--sidebar-w));
-  overflow-x: auto;
   height: calc(100vh - var(--header-h));
+  overflow-y: auto;
+  display: grid;
+  flex-grow: 1;
+}
+.main-content .main-content-inner {
+  max-width: calc(100vw - var(--sidebar-w));
+  width: 100%;
+  margin-inline: auto;
 }
 
 .loading {
@@ -261,6 +285,7 @@ ul.nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 .game-card-search .game-card-search-inner {
   -webkit-backdrop-filter: blur(20px);
@@ -270,6 +295,19 @@ ul.nav {
   padding: 1rem;
   border-radius: 50vw;
   text-align: center;
+  position: relative;
+}
+.game-card-search .game-card-search-inner .filter-button {
+  position: absolute;
+  display: block;
+  padding: 0;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+}
+.game-card-search .game-card-search-inner .filter-button svg {
+  height: 1.5rem;
+  display: block;
 }
 .game-card-search input {
   border: 0;
@@ -304,8 +342,13 @@ ul.nav {
 .game-card-block {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-inline: auto;
 }
 
+.game-card {
+  position: relative;
+  z-index: 1;
+}
 .game-card .game-card-inner {
   padding-inline: 1rem;
   margin-bottom: 3rem;
@@ -320,11 +363,6 @@ ul.nav {
   background-color: #343d79;
   color: #fff;
   text-decoration: none;
-  -webkit-animation: all 150ms linear;
-          animation: all 150ms linear;
-}
-.game-card .game-card-inner a:hover img {
-  transform: scale3d(1.1, 1.1, 1);
 }
 .game-card .game-card-inner a:hover h2 {
   color: var(--color-primary);

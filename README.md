@@ -24,8 +24,8 @@
 │   ├── layouts/
 │   │   └── MainLayout.astro
 │   └── pages/
-│   │   ├── [slug].astro
-│   │   ├── index.astro
+│       ├── [slug].astro
+│       ├── index.astro
 │       └── temp.astro
 └── package.json
 ```
