@@ -100,6 +100,7 @@ const HomeMainContent = (props) => {
         setIsLoading(false);
       })
       .catch((err) => console.error(err));
+    console.count();
   }, []);
   const handleOnChange = (e) => {
     setSearchVal(e.target.value);
