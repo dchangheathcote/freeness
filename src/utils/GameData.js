@@ -16152,6 +16152,45 @@ export function allTheDatas() {
         },
       ],
     },
+    {
+      id: 539,
+      title: "Deathverse: Let It Die",
+      thumbnail: "https://www.freetogame.com/g/539/thumbnail.jpg",
+      status: "Live",
+      short_description:
+        "A game of survival where contestants are pit against each other in a life or death game show.",
+      description:
+        "Set several hundred years following the original Let It Die, Supertrick Games’ survival action game Deathverse: Let it Die throws players into the violent TV show Death Jamboree. Sixteen different competitors must fight for survival in the most dramatic way possible, by murdering each other. The contestants are dropped on an uninhabited and heavily polluted desert island. So, not only must they survive each other, but also the effects of an element known as SPLithium. Oh, yes. And there’s the audience factor. Make them happy or lose your chance at fame and glory.\r\n\r\nMuch like its predecessor, Deathverse is violent and twisted – so much so that combatants are only armed with melee weapons. There’s no running and gunning here. You have to face your foe. But, don’t take that to mean you have to play fair. Make use of the terrain, sneak up on your enemy, and do what you need to do to survive. And don’t forget to put on a good show for the audience while you’re at it. You’ll need to entertain them to earn “GP”, a necessity if you want to make it to the end.",
+      game_url: "https://www.freetogame.com/open/deathverse-let-it-die",
+      genre: "Battle Royale",
+      platform: "Windows",
+      publisher: "Supertrick Games, Inc.",
+      developer: "GungHo Online Entertianment, Inc.",
+      release_date: "2022-09-28",
+      freetogame_profile_url:
+        "https://www.freetogame.com/deathverse-let-it-die",
+      minimum_system_requirements: {
+        os: "Windows 10 (64-bit)",
+        processor: "Intel Core i5 3470 3.2GHz",
+        memory: "8 GB",
+        graphics: "NVIDIA GTX 760",
+        storage: "40 GB",
+      },
+      screenshots: [
+        {
+          id: 1331,
+          image: "https://www.freetogame.com/g/539/deathverse-let-it-die-1.jpg",
+        },
+        {
+          id: 1332,
+          image: "https://www.freetogame.com/g/539/deathverse-let-it-die-2.jpg",
+        },
+        {
+          id: 1333,
+          image: "https://www.freetogame.com/g/539/deathverse-let-it-die-3.jpg",
+        },
+      ],
+    },
   ];
   return gameData;
 }
