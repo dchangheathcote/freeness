@@ -4,9 +4,9 @@ import { getTheSlug, returnIds, allTheDatas } from "../utils/GameData.js";
 const gameIds = returnIds();
 const gameData = allTheDatas();
 
-const fetchUrl = "https://free-to-play-games-database.p.rapidapi.com/api/games";
+const fetchUrl = "https://free-to-play-games-database.p.rapidapi.com/api/games"; //all games
 const fetchGame =
-  "https://free-to-play-games-database.p.rapidapi.com/api/game?id=";
+  "https://free-to-play-games-database.p.rapidapi.com/api/game?id="; //single game info by id
 const options = {
   method: "GET",
   headers: {
@@ -15,7 +15,10 @@ const options = {
   },
 };
 
-// console.log(gameIds.length, gameData.length);
+/**
+ * i used this page to call the API and copy and paste the data into GameData.js
+ * and being honest, there are 366 games from freetoplay.com and i have 367, so there is a duplicate somewhere...
+ */
 
 async function loopFetch(loop = 15) {
   let cur = 350;
@@ -43,9 +46,9 @@ async function singleFetch() {
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>Temp</title>
   </head>
   <body>

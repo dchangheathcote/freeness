@@ -2,6 +2,15 @@
 
 [Api from freetogame.com](https://freetogame.com)
 
+First project using Astro with React
+
+comments on
+
+- HomeMain.jsx //base component of the ReactJs application
+- HomeMainContent.jsx
+
+- [slug].astro
+
 ## 🚀 Project Structure
 
 ```
@@ -14,35 +23,18 @@
 │   └── Freeness.svg
 ├── src/
 │   ├── components/
-│   │   ├── Card.astro
-│   │   ├── Footer.astro
-│   │   ├── Header.astro
-│   │   ├── HomeMain.jsx
+│   │   ├── Card.astro //not used - leftover from astro
+│   │   ├── Footer.astro //nothing exciting
+│   │   ├── Header.astro //nothing exciting
+│   │   ├── HomeMain.jsx //application starting point imports HomeMainContent and HomeMainSidebar
 │   │   ├── HomeMainContent.jsx
 │   │   ├── HomeMainSidebar.jsx
-│   │   └── MainSidebar.astro
+│   │   └── MainSidebar.astro //empty - became HomeMainSidebar.jsx
 │   ├── layouts/
 │   │   └── MainLayout.astro
 │   └── pages/
-│       ├── [slug].astro
-│       ├── index.astro
+│       ├── [slug].astro //game pages
+│       ├── index.astro //home page
 │       └── temp.astro
 └── package.json
 ```
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
