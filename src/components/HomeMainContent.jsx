@@ -111,7 +111,7 @@ const HomeMainContent = (props) => {
    */
   const [gameData, setGameData] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); //userRef()
   /**
    * onmount - get the json data from the API and populate the game cards
    *
@@ -135,7 +135,7 @@ const HomeMainContent = (props) => {
         setIsLoading(false);
       })
       .catch((err) => console.error(err));
-    console.count();
+    // console.count();
   }, []);
   /**
    * update the searchVal state
@@ -145,8 +145,6 @@ const HomeMainContent = (props) => {
   };
   /**
    * open / close the sidebar on smaller screens
-   *
-   * I had an error when trying to inport the <Footer/> component from astro
    */
   const handleFilter = (e) => {
     document.getElementById("main-side").classList.toggle("open");

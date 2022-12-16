@@ -132,7 +132,7 @@ const {
             <div class='description'><p>{description}</p></div>
           </section>
           <div class='gallery'>
-            {screenshots.map((s) => <img src={s.image} alt={s.id} />)}
+            {screenshots.map((s) => <img decoding="async" loading="lazy" src={s.image} alt={s.id} />)}
           </div>
         </div>
         <Footer />
